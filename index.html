@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="PromedioNotas.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Notas de Alumnos</title>
+</head>
+<body>
+    <div class="container col-12 my-5 br-2 rounded">
+        <div class="row g-3">
+            <div class="col-12"> 
+                <div class="text-center">
+                    <h4>Notas de Alumnos</h4>
+                    <hr class="mt-3">
+                </div>
+                <form class="row g-1 needs-validation" novalidate>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label class="form-label" for="firstname">Nombres</label>
+                            <input type="text" id="nombres" class="form-control" required>
+                            <div class="invalid-feedback">
+                                Ingresar nombres del alumno
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label" for="lastname">Apellido Paterno</label>
+                            <input type="text" id="apellidopaterno" class="form-control" required>
+                            <div class="invalid-feedback">
+                                Ingresar apellido paterno del alumno
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label" for="lastname">Apellido Materno</label>
+                            <input type="text" id="apellidomaterno" class="form-control" required>
+                            <div class="invalid-feedback">
+                                Ingresar apellido materno del alumno
+                            </div>
+                        </div>
+                        <div class="col-4 mt-3">
+                            <label class="form-label" for="zip">Código </label>
+                            <input type="text" id="codigo" class="form-control" required>
+                            <div class="invalid-feedback">
+                                Ingrese código del alumno
+                             </div>
+                        </div>
+                        <div class="col-2 mt-3">
+                            <label class="form-label" for="zip">Nota 1 </label>
+                            <input type="number" id="nota1" class="form-control" required>
+                            <div class="invalid-feedback">
+                                Ingrese la nota 1
+                             </div>
+                        </div>
+                        <div class="col-2 mt-3">
+                            <label class="form-label" for="zip">Nota 2 </label>
+                            <input type="number" id="nota2" class="form-control" required>
+                            <div class="invalid-feedback">
+                                Ingrese la nota 2
+                             </div>
+                        </div>
+                        <div class="col-2 mt-3">
+                            <label class="form-label" for="zip">Nota 3 </label>
+                            <input type="number" id="nota3" class="form-control" required>
+                            <div class="invalid-feedback">
+                                Ingrese la nota 3
+                             </div>
+                        </div>
+                        <div class="col-2 mt-3">
+                            <label class="form-label" for="zip">Nota 4 </label>
+                            <input type="number" id="nota4" class="form-control" required>
+                            <div class="invalid-feedback">
+                                Ingrese la nota 4
+                             </div>
+                        </div>
+                        <hr class="mt-4">
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                            <button  class="btn btn-primary btn-block mb-1" onclick="subirNotas();">Promediar Nota</button>
+                            <button  class="btn btn-primary btn-block mb-1" onclick="Limpiar();">Limpiar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="car-footer p-2">
+            <table class="table table-striped table-bordered mt-4">
+                <thead class="text-center font-weight-bold">
+                    <tr class="bg-secondary text-white">
+                        <td>Nombres</td>
+                        <td>Apellido Paterno</td>
+                        <td>Apellido Materno</td>
+                        <td>Código</td>
+                        <td>Nota 1</td>
+                        <td>Nota 2</td>
+                        <td>Nota 3</td>
+                        <td>Nota 4</td>
+                        <td>Promedio</td>
+                        <td>Observación</td>
+                    </tr>
+                </thead>
+                <tbody id="añadirtabla">
+                </tbody>                  
+            </table>
+       </div>
+    <script>
+(function () {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  var forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+})()
+    </script>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</body>
+</html>
